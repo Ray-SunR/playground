@@ -1,5 +1,5 @@
 #include <iostream>
-#include "AdjGraph.h"
+#include "Graph/AdjGraph.h"
 using namespace std;
 int main()
 {
