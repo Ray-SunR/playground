@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Graph/AdjGraph.h"
+#include "Tree/IntervalSearchTree.h"
+#include "Sort/Sort.h"
 using namespace std;
 int main()
 {
@@ -23,5 +25,30 @@ int main()
     cout << graph.Print() << endl;
     cout << graph.BreadFirstSearch() << endl;
     cout << graph.DepthFirstSearch() << endl;
+
+    IntervalSearchTree tree;
+
+    tree.AddInterval(tInterval(17, 19));
+    tree.AddInterval(tInterval(5, 8));
+    tree.AddInterval(tInterval(4, 8));
+    tree.AddInterval(tInterval(15, 18));
+    tree.AddInterval(tInterval(7, 10));
+    tree.AddInterval(tInterval(21, 24));
+    tree.AddInterval(tInterval(16, 22));
+
+    if (const IntervalNode* ret = tree.Search(tInterval(21, 23)))
+    {
+        cout << "(" << ret->m_min << ", " << ret->m_max << ")" << endl;
+    }
+    cout << tree.Print() << endl;
+
+    int a[] = {3, 2, 1, 2, 2, 1, 1, 3, 5, 9, 1, 2, 3, 4 ,5, 4, 3, 2, 1 ,0};
+    vector<int> nums(a, a + sizeof(a) / sizeof(a[0]));
+    Sort::selectsort(nums);
+    for (int i = 0; i < nums.size(); i++)
+    {
+        cout << nums[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
