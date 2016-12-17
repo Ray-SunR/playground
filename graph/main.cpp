@@ -42,9 +42,9 @@ int main()
     }
     cout << tree.Print() << endl;
 
-    int a[] = {3, 2, 1, 2, 2, 1, 1, 3, 5, 9, 1, 2, 3, 4 ,5, 4, 3, 2, 1 ,0};
+    int a[] = {3, 2, 1, 2, 2, 9999, 1, 1, 3, 5, 9, 1, 2, 3, 4 ,5, 4, 3, 2, 1 ,0};
     vector<int> nums(a, a + sizeof(a) / sizeof(a[0]));
-    Sort::selectsort(nums);
+    Sort::heapsort(nums);
     for (int i = 0; i < nums.size(); i++)
     {
         cout << nums[i] << " ";

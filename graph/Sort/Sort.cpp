@@ -113,3 +113,51 @@ void Sort::selectsort(std::vector<int> &nums)
         ::swap(nums[i], nums[min_pos]);
     }
 }
+
+void Sort::insertsort(std::vector<int> &nums)
+{
+    for (int i = 0; i < nums.size(); i++)
+    {
+        int j = i - 1;
+        int pos = i;
+        while (j >= 0 && nums[pos] < nums[j])
+        {
+            ::swap(nums[pos], nums[j]);
+            pos = j--;
+        }
+    }
+}
+
+// For index i, its children will be 2 * i + 1, 2 * i + 2;
+void Sort::sink(std::vector<int> &nums, int pos, int n)
+{
+    while (2 * pos + 1 < n)
+    {
+        int j = 2 * pos + 1; // left child
+        if (j + 1< n && nums[j] < nums[j + 1]) { j++; }
+        if (nums[j] > nums[pos])
+        {
+            ::swap(nums[j], nums[pos]);
+            pos = j;
+        }
+        else { break; }
+    }
+}
+
+void Sort::heapsort(std::vector<int> &nums)
+{
+    // heaptify, start at the first node that have children
+    for (int i = (nums.size() - 2) / 2; i >= 0; i--)
+    {
+        sink(nums, i, nums.size());
+    }
+
+    std::cout << nums[nums.size() - 1] << std::endl;
+    int n = nums.size();
+    while (n)
+    {
+        ::swap(nums[0], nums[n - 1]);
+        n--;
+        sink(nums, 0, n);
+    }
+}

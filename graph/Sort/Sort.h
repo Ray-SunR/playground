@@ -12,13 +12,16 @@ public:
     static void qsort1(std::vector<int>& nums);
     static void qsort3way(std::vector<int>& nums);
     static void selectsort(std::vector<int>& nums);
+    static void insertsort(std::vector<int>& nums);
+    static void heapsort(std::vector<int>& nums);
 private:
     static void qsorthelper(std::vector<int>& nums, int low, int high);
     static void qsort1helper(std::vector<int>& nums, int low, int high);
     static int partition(std::vector<int>& nums, int low, int high);
     static int partition1(std::vector<int>& nums, int low, int high);
-
     static void qsort3wayhelper(std::vector<int>& nums, int low, int high);
+
+    static void sink(std::vector<int>& nums, int pos, int n);
 };
 
 
