@@ -161,3 +161,36 @@ void Sort::heapsort(std::vector<int> &nums)
         sink(nums, 0, n);
     }
 }
+
+void Sort::merge(std::vector<int>& data, std::vector<int> &axill, int low, int mid, int high)
+{
+    for (int i = low; i <= high; i++)
+    {
+        axill[i] = data[i];
+    }
+
+    int i = low; int j = mid + 1;
+    int k = low;
+    while (k <= high)
+    {
+        if (i > mid) { data[k++] = axill[j++]; }
+        else if (j > high) { data[k++] = axill[i++]; }
+        else if (axill[i] < axill[j]) { data[k++] = axill[i++]; }
+        else { data[k++] = axill[j++]; }
+    }
+}
+
+void Sort::shellsorthelper(std::vector<int> &nums, std::vector<int> &axill, int low, int high)
+{
+    if (low >= high) { return; }
+    int mid = low + (high - low) / 2;
+    shellsorthelper(nums, axill, low, mid);
+    shellsorthelper(nums, axill, mid + 1, high);
+    merge(nums, axill, low, mid, high);
+}
+
+void Sort::shellsort(std::vector<int> &nums)
+{
+    std::vector<int> axill = nums;
+    shellsorthelper(nums, axill, 0, nums.size() - 1);
+}

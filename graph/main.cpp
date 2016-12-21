@@ -2,6 +2,8 @@
 #include "Graph/AdjGraph.h"
 #include "Tree/IntervalSearchTree.h"
 #include "Sort/Sort.h"
+#include "Stack/Stack.h"
+
 using namespace std;
 int main()
 {
@@ -44,11 +46,30 @@ int main()
 
     int a[] = {3, 2, 1, 2, 2, 9999, 1, 1, 3, 5, 9, 1, 2, 3, 4 ,5, 4, 3, 2, 1 ,0};
     vector<int> nums(a, a + sizeof(a) / sizeof(a[0]));
-    Sort::heapsort(nums);
+    Sort::shellsort(nums);
     for (int i = 0; i < nums.size(); i++)
     {
         cout << nums[i] << " ";
     }
     cout << endl;
+
+    Stack stk;
+    stk.push(1);
+    stk.push(2);
+    stk.push(3);
+    stk.push(4);
+    cout << "top: " << stk.top() << endl;
+    stk.pop();
+    cout << "top: " << stk.top() << endl;
+    stk.push(5);
+    stk.push(6);
+    stk.push(7);
+    stk.pop();
+    cout << "top: " << stk.top() << endl;
+    stk.pop();
+    stk.pop();
+    stk.pop();
+    stk.pop();
+    cout << "size: " << stk.size() << endl;
     return 0;
 }
