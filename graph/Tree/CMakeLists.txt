@@ -1,6 +1,6 @@
-project(StaticBTreeLib CXX)
+project(StaticTreeLib CXX)
 
-file(GLOB SOURCES *.cpp)
+file(GLOB SOURCES *.cpp *.h)
 
-add_library(StaticBTreeLib ${SOURCES})
-target_link_libraries(StaticBTreeLib)
+add_library(StaticTreeLib ${SOURCES})
+target_link_libraries(StaticTreeLib)
