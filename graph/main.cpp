@@ -24,9 +24,9 @@ int main()
 
     graph.AddEdge(1, 5);
 
-    cout << graph.Print() << endl;
-    cout << graph.BreadFirstSearch() << endl;
-    cout << graph.DepthFirstSearch() << endl;
+    cout << graph.Print().c_str() << endl;
+    cout << graph.BreadFirstSearch().c_str() << endl;
+    cout << graph.DepthFirstSearch().c_str() << endl;
 
     IntervalSearchTree tree;
 
@@ -42,7 +42,7 @@ int main()
     {
         cout << "(" << ret->m_min << ", " << ret->m_max << ")" << endl;
     }
-    cout << tree.Print() << endl;
+    cout << tree.Print().c_str() << endl;
 
     int a[] = {3, 2, 1, 2, 2, 9999, 1, 1, 3, 5, 9, 1, 2, 3, 4 ,5, 4, 3, 2, 1 ,0};
     vector<int> nums(a, a + sizeof(a) / sizeof(a[0]));
